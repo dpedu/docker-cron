@@ -1,0 +1,9 @@
+#!/bin/bash -eux
+
+if test -x /srv/cron/startup ; then
+    /srv/cron/startup
+fi
+
+ln -s /srv/cron/crontab /etc/cron.d/
+
+exec cron -f
